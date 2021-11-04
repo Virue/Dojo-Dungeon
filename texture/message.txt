@@ -1,0 +1,203 @@
+package tutorial14;
+
+public class LevelData {
+    
+    public static int player_start_pos[][] ={
+      {0, 320},
+      {150,220},//4
+      {0,320}, //5
+      {0,320},  //level 7 start etc.
+      {0,320}, //8
+      {0,320}, //9
+      {0,320}, //10
+      {100,320} //11
+    };
+    
+    public static String background_img[] ={
+      "tutorial14/texture/forest/lvl1_background.PNG", //level 1 background img file path goes here (should look like: "tutorial14/texture/filename.extention") 
+      "tutorial14/texture/forest/lvl1_background.PNG",
+      "tutorial14/texture/forest/lvl1_background.PNG",
+      "tutorial14/texture/forest/lvl1_background.PNG",  
+      "tutorial14/texture/hills/HillsBackground.PNG",
+      "tutorial14/texture/hills/HillsBackground.PNG",
+      "tutorial14/texture/hills/HillsBackground.PNG",
+      "tutorial14/texture/hills/HillsBackground.PNG",
+      "tutorial14/texture/mountin/MountainBackground.PNG",
+      "tutorial14/texture/mountin/MountainBackground.PNG",
+      "tutorial14/texture/mountin/MountainBackground.PNG",
+      "tutorial14/texture/mountin/MountainBackground.PNG",
+      "tutorial14/texture/cave/CaveBackground.PNG",
+      "tutorial14/texture/cave/CaveBackground.PNG",
+      "tutorial14/texture/cave/CaveBackground.PNG",
+      "tutorial14/texture/cave/CaveBackground.PNG",
+      "tutorial14/texture/castle/CastleWalls.PNG",
+      "tutorial14/texture/castle/CastleWalls.PNG",
+      "tutorial14/texture/castle/CastleWalls.PNG",
+      "tutorial14/texture/castle/CastleWalls.PNG",
+    };
+    
+    
+    
+    public static final String[][] level_dat = new String[][] 
+    {
+      {
+        //level 1 forest
+      
+        ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+        "33333333333333333333333333333",
+        "                             ",
+        "                            2",
+        "                        }~~~{",
+        "                             ",
+        "              4      4       ",   
+        "           4                 ",
+        "        4         4          ",
+        "     S                       ",
+        "    Si                       ",
+        "   SiY   o   o   o   o   o   ",
+        "XXYYYYXXXXXXXXXXXXXXXXXXXXXXX",
+        "                     "
+       },
+       {
+         //level 2 forsest
+       
+         ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+         "3333333333333333333333333333333333333333333333333333333333333",
+         "                                                             ",
+         "                                                             ",
+         "                                                             ",
+         "X      oo                         YY                         ",
+         "X  XXX                  2     YY        YY                   2",   
+         "X  Y              Y  YYYYYY                YYYY          YYYY",
+         "X  YMMMMMMMMMMMMMMY  Y    Y                Y   Y        Y    ",
+         "X  YYYYYYYYYYYYYYYY  Y    Y                Y    Y      Y     ",
+         "X                    Y    Y                Y     Y    Y      ",
+         "X     o   o    o     Y    YMMMMMMMMMMMMMMMMY      YYYY       ",
+         "XXXXXXXXXXXXXXXXXXXXXXXXXXXXYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY ",
+         "                     "
+        },
+        {
+         //level 3 cassel
+         "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+         "                              C         CCCCCCCCCCCCCCCC   ",
+         "                              C         C              C  ",
+         "               [-]     CCC        CCCC                2C   ",
+         "                m     CC C                 CCCCCCCCCCCCC   ",
+         "                       C CCCCCC            C              ",   
+         "                       C      C            C              ",
+         "          CCCCCCCCCCCCCC      C            C               ",
+         "        2 C                    C    CCCCCCCC               ",
+         "        C                     CMMCC                     ",
+         "       C                                              ",
+         "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC ",
+
+         "     "
+        },
+        {
+        //level 4 (Hills Level: A)
+         "                                                     Y     Y",
+         "                     HHH                                   Y",
+         "          2           SXP                         HHHHH     Y",
+         "   HHHHHHHHHHHH        Y                         SXXXP     Y",
+         "   SXXXXXXXXXXPX     HHYHHMHHHHH   HHHHHH   HHHHHYYYYY     Y",
+         "   YYYYYYYYYYY       SXYXXXXXXXP   SXXXXP   SXXXXYYYYY     Y",
+         "HHHYYYYYYYYYYY         YYYYYYYYY   YYYYYY   YYYYYYYYYYHHHH2Y",
+         "XXXYYYYYYYYYYY       HHYYYYYYYYY   YYYYYY   YYYYYYYYYYXXXXXY",
+         "YYYYYYYYYYYYYY       SXYYYYYYYYY   YYYYYY   YYYYYYYYYYYYYYYY",
+         "YYYYYYYYYYYYYY         YYYYYYYYY   YYYYYY   YYYYYYYYYYYYYYYY",
+         "YYYYYYYYYYYYYYHHHHHHHHHYYYYYYYYYMMMYYYYYYMMMYYYYYYYYYYYYYYYY",
+         "YYYYYYYYYYYYYYXXXXXXXXXYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY",
+         "Y                                " 
+        //1   5    10   15   20   25   30   35   40   45   50   55   60       
+        },
+        {
+        //level 5 (forest Level: A)
+         ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;",
+         "33333333333333333333333333W333331 ",
+         "                          W     1 ",
+         "       H    H    H    HH  W     1 ",
+         "     2  4    4    4    SP  W  HH21 ",
+         "     H                QRH    }~~Y  ",   
+         "     4                  4HHH    1  ",
+         "HHHH   HHH   HHH   HHH   }XPH   1  ",
+         "XXXP]  SXP]  SXP]  SXPH   QY{   1   ",
+         "YYYW]  1YW]  1YW]  1YjP         1  ",
+         "YYYW]HH1YW]HH1YW]HH1YYWHHHHHHHHH1 ",
+         "YYYjXXXiYjXXXiYjXXXiYYjXXXXXXXXXX ",
+
+         "Y                                " 
+        //1   5    10   15   20   25   30   35   40   45   50   55   60       
+        },
+        {
+        //level 6 (cassel Level: A)
+         "C))))))))))))))))))))))))))))))))))))))))))))))))))))",
+         "D                                                    ",
+         "D                                                    ",
+         "D                                                     ",
+         "D                                                     ",
+         "D                                          2           ",   
+         "D               -   -                    deeef         ",
+         "D          -                                          ",
+         "D     -                              -                ",
+         "Aeef2                      -  -   - -                  ",
+         "D                                                     ",
+         "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM ",
+
+
+         "Y                                " 
+        //1   5    10   15   20   25   30   35   40   45   50   55   60       
+        },
+        {
+        //level 7 (montin Level: A)
+      "                ((((((((((                    ",
+         "                       @        Y(((((((Y    ",
+         "                       @        #       @    ",
+         "                      [#((((((YY#      2@      ",
+         "                   ^   #      @(#   Y>>>Y     ",
+         "                  ^$   #       m    @      ",
+         "                ^*Y$   #  @         @      ",
+         "               ^YYY$]  #  @         @      ",   
+         "               @YYY$      @>>>>>>>>>(>?     ",   
+         "              ^YYYY$      @                 ",   
+         " 2             @YYYY$ M    @                 ",
+         "****************************               ",
+
+ 
+        //1   5    10   15   20   25   30   35   40   45   50   55   60       
+        },
+        {
+        //level 8 cave
+        "555555555555555555555555555555555555555",
+         "      55555555555  9               F7 ",
+         "    FF           F 9                7 ",
+         "    9             79  ab!           7 ",
+         "    9         2    79    9FM     M   7 ",
+         "    9  8VV!  8!   79    9Fbbbbbbbc  7 ",
+         "    9  7  9  79   F5bc  9F          7 ",
+         "F55F   7  9  79         9           7 ",
+         "9     8   9  79         9  abbbbbbbb7 ",
+         "9     7   9  79      8VV9           7 ",
+         "9    8    9MM79    MM7FF9          27 ",
+         "VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+
+        },
+        {
+                //level 9 cave
+         "555555555555555555555555555555555555555555555555  ",
+         "    9                               7        7      ",
+         "    9                               7M       7     ",
+         "    9  abbbbbbc  abc  abbbbbbbbbb!  7   ab!  7     ",
+         "    9      V                     9  7     9  7       ",
+         "    9      V                     9  7bc   9  7     ",
+         "    Vbbc            M            9        9  7  ",
+         "V55V           8bbbbbbbbbbMbbc   9        9  7         ",
+         "9          abbbV    m   m    m   Mbbbbbbbb9  7    ",
+         "9    8!                                      7        ",
+         "9    79                                2     7     ",
+         "VVVVVVVVVVVVVVVVVVMVVVVMVVVMVVVVVVVVVVVVVVVVVVVVVV",
+
+        }
+   };
+   
+}
+   

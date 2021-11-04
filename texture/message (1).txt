@@ -1,0 +1,216 @@
+package tutorial14;
+
+public class LevelData {
+    
+    public static int player_start_pos[][] ={
+      {200,100}, //level 1 start position (x,y)
+      {0,500},  //level 2 start etc.
+      {0,500}, //3
+      {0,320},//4
+      {0,320}, //5
+      {0,200}, //level 6 start position (x,y)
+      {0,320},  //level 7 start etc.
+      {100,500}, //8
+      {0,320}, //9
+      {0,320}, //10
+      {100,320} //11
+    };
+    
+    public static String background_img[] ={
+      "tutorial14/texture/forest/lvl1_background.PNG", //level 1 background img file path goes here (should look like: "tutorial14/texture/filename.extention") 
+      "tutorial14/texture/forest/lvl1_background.PNG",
+      "tutorial14/texture/forest/lvl1_background.PNG",
+      "tutorial14/texture/forest/lvl1_background.PNG",  
+      "tutorial14/texture/hills/HillsBackground.PNG",
+      "tutorial14/texture/hills/HillsBackground.PNG",
+      "tutorial14/texture/hills/HillsBackground.PNG",
+      "tutorial14/texture/hills/HillsBackground.PNG",
+      "tutorial14/texture/mountin/MountainBackground.PNG",
+      "tutorial14/texture/mountin/MountainBackground.PNG",
+      "tutorial14/texture/mountin/MountainBackground.PNG",
+      "tutorial14/texture/mountin/MountainBackground.PNG",
+      "tutorial14/texture/cave/CaveBackground.PNG",
+      "tutorial14/texture/cave/CaveBackground.PNG",
+      "tutorial14/texture/cave/CaveBackground.PNG",
+      "tutorial14/texture/cave/CaveBackground.PNG",
+      "tutorial14/texture/castle/CastleWalls.PNG",
+      "tutorial14/texture/castle/CastleWalls.PNG",
+      "tutorial14/texture/castle/CastleWalls.PNG",
+      "tutorial14/texture/castle/CastleWalls.PNG",
+    };
+    
+    
+    
+    public static final String[][] level_dat = new String[][] 
+    {
+       {
+         //level 1
+       
+         "                                                                  ",
+         "                                                             ",
+         "                                                             ",
+         "                                                             ",
+         "X   2                              YY                         ",
+         "X  XXX                       YY        YY                   2",   
+         "X  Y              Y  YYYYYY                YYYY          YYYY",
+         "X  YMMMMMMMMMMMMMMY  Y    Y                Y   Y        Y    ",
+         "X  YYYYYYYYYYYYYYYY  Y    Y                Y    Y      Y     ",
+         "X                    Y    Y                Y     Y    Y      ",
+         "X                    Y    YMMMMMMMMMMMMMMMMY      YYYY       ",
+         "XXXXXXXXXXXXXXXXXXXXXXXXXXXXYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY ",
+
+         "                     "
+        },
+        {
+         //level 2
+         "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+         "                              C         CCCCCCCCCCCCCCCC   ",
+         "                              C         C              C  ",
+         "               MCM     CCC        CCCC                2C   ",
+         "                M     CC C                 CCCCCCCCCCCCC   ",
+         "                       C CCCCCC            C              ",   
+         "                       C      C            C              ",
+         "          CCCCCCCCCCCCCC      C            C               ",
+         "         C                    C    CCCCCCCC               ",
+         "        C                     CMMCC                     ",
+         "   2    C                                              ",
+         "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC ",
+
+         "     "
+        },
+        {
+        //level 3
+         "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+         "                              C         CCCCCCCCCCCCCCCC   ",
+         "                              C         C              C  ",
+         "               MCM     CCC        CCCC                2C   ",
+         "                M     CC C                 CCCCCCCCCCCCC   ",
+         "                       C CCCCCC            C              ",   
+         "                       C      C            C              ",
+         "          CCCCCCCCCCCCCC      C            C               ",
+         "         C                    C    CCCCCCCC               ",
+         "        C                     CMMCC                     ",
+         "   2     C                                              ",
+         "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC ",      
+        },
+        {
+        //level 4 (Hills Level: A)
+         "                                                     Y     Y",
+         "                     HHH                                   Y",
+         "     2                SXP                         HHHHH     Y",
+         "   HHHHHHHHHHHH        Y                         SXXXP     Y",
+         "   SXXXXXXXXXXPX     HHYHHMHHHHH   HHHHHH   HHHHHYYYYY     Y",
+         "   YYYYYYYYYYY       SXYXXXXXXXP   SXXXXP   SXXXXYYYYY    2Y",
+         "HHHYYYYYYYYYYY         YYYYYYYYY   YYYYYY   YYYYYYYYYYHHHHHY",
+         "XXXYYYYYYYYYYY       HHYYYYYYYYY   YYYYYY   YYYYYYYYYYXXXXXY",
+         "YYYYYYYYYYYYYY       SXYYYYYYYYY   YYYYYY   YYYYYYYYYYYYYYYY",
+         "YYYYYYYYYYYYYY         YYYYYYYYY   YYYYYY   YYYYYYYYYYYYYYYY",
+         "YYYYYYYYYYYYYYHHHHHHHHHYYYYYYYYYMMMYYYYYYMMMYYYYYYYYYYYYYYYY",
+         "YYYYYYYYYYYYYYXXXXXXXXXYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY",
+         "Y                                " 
+        //1   5    10   15   20   25   30   35   40   45   50   55   60       
+        },
+        {
+        //level 5 (Hills Level: A)
+         "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+         "                          Y     Y ",
+         "                          Y     Y ",
+         "                          Y     Y ",
+         "       Y    Y    Y    YY  Y    2Y ",
+         "                      YY     YYYY  ",   
+         "     Y                  Y       Y  ",
+         "   2                      YYY    Y  ",
+         "YYYYM  YYYM  YYYM  YYY    YYY   Y   ",
+         "   YM  Y YM  Y YM  Y YY         Y  ",
+         "   YM  Y YM  Y YM  Y YY         Y ",
+         "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY ",
+
+         "Y                                " 
+        //1   5    10   15   20   25   30   35   40   45   50   55   60       
+        },
+        {
+        //level 6 (Hills Level: A)
+         "CCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCCC",
+         "                                                    ",
+         "                                                    ",
+         "                                                     ",
+         "                                                     ",
+         "                                           2           ",   
+         "X               C   C                    CCCCC         ",
+         "X          C                                          ",
+         "X     C                              C                ",
+         "XCCC                      C  C   C C                  ",
+         "X                                                     ",
+         "MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM ",
+
+
+         "Y                                " 
+        //1   5    10   15   20   25   30   35   40   45   50   55   60       
+        },
+        {
+        //level 7 (Hills Level: A)
+  		"                 YYYYYYYYY                    ",
+         "                       Y        YYYYYYYYY    ",
+         "                       Y        Y       Y    ",
+         "                      MYYYYYYYYYY      2Y      ",
+         "                   Y   Y      YYY   YYYYY     ",
+         "                  XY   Y      YMY   Y      ",
+         "                XXYX   Y  Y         Y      ",
+         "               XYYYYM  Y  Y         Y      ",   
+         "               YYYYY      YYYYYYYYYYYYY     ",   
+         "              YYYYYY      Y                 ",   
+         "    X         YYYYYY M    Y                 ",
+         "YYYYYYYYYYYYYYYYYYYYYYYYYYYYY               ",
+ 
+        //1   5    10   15   20   25   30   35   40   45   50   55   60       
+        },
+        {
+        //level 8
+        "CCCCCCCCCCCCCCCCCCCCFFFFFFFFFFFFFFFFCC",
+         "      FFFFFFFFFFF  F               FF ",
+         "    FF           F F                F ",
+         "    F             FF  FFF           F ",
+         "    F             FF    FFM     M   F ",
+         "    F  FFFF  FF   FF    FFFFFFFFFF  F ",
+         "    F  F  F  FF   FFFF  FF          F ",
+         "FFFF   F  F  FF         F           F ",
+         "F     F   F  FF         F  FFFFFFFFFF ",
+         "F     F   F  FF      FFFF           F ",
+         "F    F    FMMFF    MMFFFF          2F ",
+         "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+        },
+        {
+        //level 9
+         "VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV  ",
+         "    V                               V        V      ",
+         "    V                               VM   2   V     ",
+         "    V  VVVVVVVV  VVV  VVVVVVVVVVVV  V   VVV  V     ",
+         "    V      V                     V  V     V  V       ",
+         "    V      V                     V  VVV   V  V     ",
+         "    VVVV                         V        V  V  ",
+         "VVVV           VVVVVVVVVVVVVVV   V        V  V         ",
+         "V          VVVVVM                VVVVVVVVVV  V    ",
+         "V    VV                                      V        ",
+         "V    VV             M                        V     ",
+         "VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV",
+        },
+        {
+                //level 10
+         "VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV  ",
+         "    V                               V        V      ",
+         "    V                               VM       V     ",
+         "    V  VVVVVVVV  VVV  VVVVVVVVVVVV  V   VVV  V     ",
+         "    V      V                     V  V     V  V       ",
+         "    V      V                     V  VVV   V  V     ",
+         "    VVVV                         V        V  V  ",
+         "VVVV           VVVVVVVVVVVMVVV   V        V  V         ",
+         "V          VVVVV    M   M    M  MVVVVVVVVVV  V    ",
+         "V    VV                                      V        ",
+         "V    VV                                2     V     ",
+         "VVVVVVVVVVVVVVVVVVMVVVVMVVVMVVVVVVVVVVVVVVVVVVVVVV",
+        }
+
+   };
+   
+}
+   
