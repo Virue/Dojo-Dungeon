@@ -26,14 +26,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"/>
 
-    <ImageView
+    <pl.droidsonroids.gif.GifImageView
         android:id="@+id/imageView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
-        android:layout_marginEnd="152dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:srcCompat="@drawable/player_run_right" />
+        android:src="@drawable/player_run_right" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
