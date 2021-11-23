@@ -15,7 +15,12 @@ import androidx.navigation.ui.NavigationUI;
 
 import com.example.dojodungeons.databinding.ActivityMainMenuBinding;
 
+import java.util.ArrayList;
+import java.util.List;
+
+
 public class MainMenu extends AppCompatActivity {
+
 
     private AppBarConfiguration appBarConfiguration;
     private ActivityMainMenuBinding binding;
@@ -32,6 +37,7 @@ public class MainMenu extends AppCompatActivity {
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main_menu);
         appBarConfiguration = new AppBarConfiguration.Builder(navController.getGraph()).build();
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+
 
         binding.fab.setOnClickListener(new View.OnClickListener() {
             @Override
