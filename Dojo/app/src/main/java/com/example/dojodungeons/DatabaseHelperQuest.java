@@ -24,6 +24,8 @@ public class DatabaseHelperQuest extends SQLiteOpenHelper{
     public static final String COLUMN_DESCRIPTION = "description";
     public static final String COLUMN_STAMINAVALUE = "StaminaValue";
     public static final String COLUMN_PROGRESS = "progress";
+    public static final String COLUMN_CURRENT = "current";
+    public static final String COLUMN_GOAL = "goal";
 
     // Create table SQL query
     public static final String CREATE_TABLE =
@@ -31,7 +33,9 @@ public class DatabaseHelperQuest extends SQLiteOpenHelper{
                     + COLUMN_QUESTNUM + "INT,"
                     + COLUMN_DESCRIPTION + " TEXT,"
                     + COLUMN_STAMINAVALUE + " INT,"
-                    + COLUMN_PROGRESS + "INT"
+                    + COLUMN_PROGRESS + "INT,"
+                    + COLUMN_CURRENT + "INT,"
+                    + COLUMN_GOAL + "INT"
                     + ")";
 
     public DatabaseHelperQuest(Context context) {
@@ -55,32 +59,13 @@ public class DatabaseHelperQuest extends SQLiteOpenHelper{
         onCreate(db);
     }
 
-    public long insertQuest(int questNUm,String description, int StaminaValue, int progress) {
-        // get writable database as we want to write data
-        SQLiteDatabase db = this.getWritableDatabase();
-
-        ContentValues values = new ContentValues();
-        values.put(COLUMN_QUESTNUM, questNUm);
-        values.put(COLUMN_DESCRIPTION, description);
-        values.put(COLUMN_STAMINAVALUE, StaminaValue);
-        values.put(COLUMN_PROGRESS, progress);
-
-        // insert row
-        long id = db.insert(TABLE_NAME, null, values);
-
-        // close db connection
-        db.close();
-
-        // return newly inserted row id
-        return id;
-    }
 
     public Quest getQuest(long questNum) {
         // get readable database as we are not inserting anything
         SQLiteDatabase db = this.getReadableDatabase();
 
         Cursor cursor = db.query(TABLE_NAME,
-                new String[]{COLUMN_QUESTNUM, COLUMN_DESCRIPTION, COLUMN_STAMINAVALUE, COLUMN_PROGRESS},
+                new String[]{COLUMN_QUESTNUM, COLUMN_DESCRIPTION, COLUMN_STAMINAVALUE, COLUMN_PROGRESS, COLUMN_CURRENT, COLUMN_GOAL},
                 COLUMN_QUESTNUM + "=?",
                 new String[]{String.valueOf(questNum)}, null, null, null, null);
 
@@ -92,12 +77,36 @@ public class DatabaseHelperQuest extends SQLiteOpenHelper{
                 cursor.getInt(cursor.getColumnIndex(COLUMN_QUESTNUM)),
                 cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)),
                 cursor.getInt(cursor.getColumnIndex(COLUMN_STAMINAVALUE)),
-                cursor.getInt(cursor.getColumnIndex(COLUMN_PROGRESS)));
+                cursor.getInt(cursor.getColumnIndex(COLUMN_PROGRESS)),
+                cursor.getInt(cursor.getColumnIndex(COLUMN_CURRENT)),
+                cursor.getInt(cursor.getColumnIndex(COLUMN_GOAL)));
 
         // close the db connection
         cursor.close();
 
         return quest;
+    }
+
+    public String getCurrentDescription(long current) {
+        // get readable database as we are not inserting anything
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.query(TABLE_NAME,
+                new String[]{COLUMN_QUESTNUM, COLUMN_DESCRIPTION, COLUMN_STAMINAVALUE, COLUMN_PROGRESS, COLUMN_CURRENT, COLUMN_GOAL},
+                COLUMN_CURRENT + "=?",
+                new String[]{String.valueOf(current)}, null, null, null, null);
+
+        if (cursor != null)
+            cursor.moveToFirst();
+
+        // prepare note object
+        @SuppressLint("Range") String currentDescription = cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION));
+
+
+        // close the db connection
+        cursor.close();
+
+        return currentDescription;
     }
 
     @SuppressLint("Range")
@@ -119,6 +128,8 @@ public class DatabaseHelperQuest extends SQLiteOpenHelper{
                 quest.setdescription(cursor.getString(cursor.getColumnIndex(COLUMN_DESCRIPTION)));
                 quest.setstaminaValue(cursor.getInt(cursor.getColumnIndex(COLUMN_STAMINAVALUE)));
                 quest.setprogress(cursor.getInt(cursor.getColumnIndex(COLUMN_PROGRESS)));
+                quest.setprogress(cursor.getInt(cursor.getColumnIndex(COLUMN_CURRENT)));
+                quest.setprogress(cursor.getInt(cursor.getColumnIndex(COLUMN_GOAL)));
                 quests.add(quest);
             } while (cursor.moveToNext());
         }

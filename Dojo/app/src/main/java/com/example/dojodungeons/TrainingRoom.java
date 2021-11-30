@@ -68,7 +68,8 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
         });
 
 
-        Button g = (Button) findViewById(R.id.button4);//get id of button 1
+        Button g = (Button) findViewById(R.id.button4);
+        g.setText(db.getCurrentDescription(1));//get id of button 1
         g.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -78,7 +79,8 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
         });
 
 
-        Button j = (Button) findViewById(R.id.button5);//get id of button 1
+        Button j = (Button) findViewById(R.id.button5);
+        g.setText(db.getCurrentDescription(2));//get id of button 1
         j.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,6 +89,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
             }
         });
     }
+
     @Override
     protected void onResume() {
         super.onResume();

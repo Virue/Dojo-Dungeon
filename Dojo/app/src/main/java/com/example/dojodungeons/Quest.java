@@ -5,19 +5,25 @@ public class Quest {
     private String description;
     private int staminaValue;
     private int progress;
+    private int current;
+    private int goal;
 
     public static final Quest[] quests = {
-            new Quest(1,"Take 100 Steps", 37, 22)
+            new Quest(1,"Slow and Steady: Take 100 steps", 2, 0, 1, 100),
+            new Quest(2,"Walk it off: walk 200 steps", 4 , 0 , 2 , 200)
+
     };
 
     public Quest() {
     }
 
-    public Quest(int questNum, String description, int staminaValue, int progress) {
+    public Quest(int questNum, String description, int staminaValue, int progress, int current, int goal) {
         this.questNum = questNum;
         this.description = description;
         this.staminaValue = staminaValue;
         this.progress = progress;
+        this.current = current;
+        this.goal = goal;
     }
 
     public int getquestNum() {
@@ -50,6 +56,18 @@ public class Quest {
     }
 
     public int getprogress() {return progress;}
+
+    public void setcurrent(int current) {
+        this.current = current;
+    }
+
+    public int getcurrent() {return current;}
+
+    public void setgoal(int goal) {
+        this.goal = goal;
+    }
+
+    public int getgoal() {return goal;}
 
 
 }
