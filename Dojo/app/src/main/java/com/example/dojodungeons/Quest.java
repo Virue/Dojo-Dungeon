@@ -11,6 +11,7 @@ public class Quest {
     };
 
     public Quest() {
+
     }
 
     public Quest(int questNum, String description, int staminaValue, int progress) {

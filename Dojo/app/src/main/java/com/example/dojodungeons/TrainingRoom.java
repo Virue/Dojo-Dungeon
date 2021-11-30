@@ -30,7 +30,7 @@ import java.util.List;
 public class TrainingRoom extends AppCompatActivity implements SensorEventListener {
 
     /* for database */
-    private List<Quest> questsList = new ArrayList<>();
+    private List<Quest> questsList = new ArrayList<Quest>();
     private DatabaseHelperQuest db;
 
     SensorManager sensorManager = null;
@@ -56,7 +56,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
 
         /*import database*/
         db = new DatabaseHelperQuest(this);
-        questsList.addAll(db.getAllQuests());
+       //questsList.addAll(db.getAllQuests());
 
         Button b = (Button) findViewById(R.id.button6);//get id of button 1
         b.setOnClickListener(new View.OnClickListener() {
@@ -72,7 +72,8 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
         g.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast T = Toast.makeText(getApplicationContext(),String.valueOf(db.getQuest(1)),Toast.LENGTH_LONG);
+               // Toast T = Toast.makeText(getApplicationContext(),String.valueOf(db.getQuest(1)),Toast.LENGTH_LONG);
+                Toast T= Toast.makeText(getApplicationContext(), "check", Toast.LENGTH_LONG);
                 T.show();
             }
         });
