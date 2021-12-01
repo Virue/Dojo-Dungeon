@@ -100,7 +100,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
             }
         }
 
-        if( currentRunningQuest > 11 ){
+        if( currentRunningQuest > 8 ){
             currentRunningQuest = 0;
         }
 
