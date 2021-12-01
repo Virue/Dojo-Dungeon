@@ -283,14 +283,9 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
                     }
                     g.setText(RunningQuest[temp]);
 
-                    previousTotalSteps = 0;
-                    totalSteps = 0;
+                    previousTotalSteps = totalSteps;
                     tv_stepsTaken.setText("0");
-                    SharedPreferences sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
-                    SharedPreferences.Editor editor = sharedPreferences.edit();
-                    editor.putFloat("key1", previousTotalSteps);
-                    editor.apply();
-
+                    saveData();
                 }
             }
         });
@@ -382,6 +377,9 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
                 T.show();
             }
         });
+
+
+
     }
 
     @Override
@@ -410,19 +408,19 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
             public boolean onLongClick(View v) {
                 previousTotalSteps = totalSteps;
                 tv_stepsTaken.setText("0");
-               // saveData();
+                saveData();
                 return true;
             }
         });
     }
-    /*
+
     private void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putFloat("key1", previousTotalSteps);
         editor.apply();
     }
-    */
+
     private void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
         float savedNumber = sharedPreferences.getFloat("key1", 0f);
