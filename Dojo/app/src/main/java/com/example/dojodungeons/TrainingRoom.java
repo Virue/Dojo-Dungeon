@@ -76,12 +76,9 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
         //Some Randomness
-        Random rand = new Random();
-        int randomRunning = rand.nextInt(10);
-        int randomOther = rand.nextInt(12);
 
         // Load Current RunningQuest
-        int currentRunningQuest = randomRunning;
+        int currentRunningQuest = 0;
 
 
         File file2 = getBaseContext().getFileStreamPath("currentRunningQuest.txt");
@@ -118,7 +115,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
 
 
         // Load Current OtherQuest
-        int currentOtherQuest = randomOther;
+        int currentOtherQuest = 0;
 
 
         File file3 = getBaseContext().getFileStreamPath("currentOtherQuest.txt");
@@ -317,12 +314,12 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
                 }
 
                 //Get new OtherQuest
-                int randomOther = rand.nextInt(13);
+                temp += 1;
                 FileOutputStream fos3;
 
                 try {
                     fos3 = openFileOutput("currentOtherQuest.txt", Context.MODE_PRIVATE);
-                    fos3.write(randomOther);
+                    fos3.write(temp);
                     fos3.close();
                 } catch (FileNotFoundException e) {
                     e.printStackTrace();
@@ -331,7 +328,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
                     e.printStackTrace();
 
                 }
-                j.setText(OtherQuest[randomOther]);
+                j.setText(OtherQuest[temp]);
 
                 Toast T = Toast.makeText(getApplicationContext(),String.valueOf(staminaClick),Toast.LENGTH_LONG);
                 T.show();
