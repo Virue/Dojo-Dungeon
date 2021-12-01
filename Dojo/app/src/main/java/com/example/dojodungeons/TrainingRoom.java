@@ -73,6 +73,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
         }
         tv_stepsTaken = findViewById(R.id.tv_stepsTaken);
         tv_totalMax = findViewById(R.id.tv_totalMax);
+
         loadData();
         resetSteps();
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -418,12 +419,12 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
         SharedPreferences sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putFloat("key1", previousTotalSteps);
-        editor.apply();
+        editor.clear().apply();
     }
 
     private void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
-        float savedNumber = sharedPreferences.getFloat("key1", 0f);
+        float savedNumber = sharedPreferences.getFloat("key1", (previousTotalSteps));
         Log.d("MainActivity", String.valueOf(savedNumber));
         previousTotalSteps = savedNumber;
     }
