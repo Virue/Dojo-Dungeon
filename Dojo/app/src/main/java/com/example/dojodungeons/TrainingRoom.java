@@ -45,13 +45,13 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
 
     int[] RunningGoals = {100,200,300,400,500,600,700,800,900};
 
-    int[] RunningRewards = {2,4,6,8,10,12,14,16,18};
+    int[] RunningRewards = {1,1,1,1,2,2,2,2,3};
 
     String[] OtherQuest = {"Pull it together: Do 10 pull ups", "Pull some strings: Do 20 pull ups", "Pulling it off: Do 50 pull ups",
             "Pushover: Do 10 push ups", "Now you're pushing it: Do 20 push ups", "Push it to the limit: Do 50 push ups",
             "Sit Down: Do 10 sit ups", "Sitting on the job: Do 20 sit ups", "No time to sit around: Do 50 sit ups",
             "Crunchy: Do 10 crunches", "Crunch time: Do 20 crunches", "Crunch the numbers: Do 50 crunches"};
-    int[] OtherRewards = {5,10,15,4,8,12,3,6,9,3,6,9};
+    int[] OtherRewards = {1,2,3,1,2,2,1,1,2,1,1,2};
 
 
     SensorManager sensorManager = null;
