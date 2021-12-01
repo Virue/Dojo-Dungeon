@@ -236,7 +236,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
                     }
                 }
 
-                if (totalSteps >= RunningGoals[temp]) {
+                if ((int)totalSteps >= RunningGoals[temp]) {
 
                     // Add to and Store Stamina Value
                     staminaClick += RunningRewards[temp];
@@ -406,19 +406,19 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
             public boolean onLongClick(View v) {
                 previousTotalSteps = totalSteps;
                 tv_stepsTaken.setText("0");
-                saveData();
+               // saveData();
                 return true;
             }
         });
     }
-
+    /*
     private void saveData() {
         SharedPreferences sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putFloat("key1", previousTotalSteps);
         editor.apply();
     }
-
+    */
     private void loadData() {
         SharedPreferences sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
         float savedNumber = sharedPreferences.getFloat("key1", 0f);
