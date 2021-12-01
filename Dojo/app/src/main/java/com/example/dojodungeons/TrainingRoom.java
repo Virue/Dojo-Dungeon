@@ -22,6 +22,14 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+//new stuff
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+
 import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 import java.util.ArrayList;
@@ -30,8 +38,7 @@ import java.util.List;
 public class TrainingRoom extends AppCompatActivity implements SensorEventListener {
 
     /* for database */
-    private List<Quest> questsList = new ArrayList<Quest>();
-    private DatabaseHelperQuest db;
+
 
     SensorManager sensorManager = null;
     boolean running = false;
@@ -54,9 +61,28 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
         resetSteps();
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
 
-        /*import database*/
-        db = new DatabaseHelperQuest(this);
-       //questsList.addAll(db.getAllQuests());
+       //Load Stamina from file
+        int stamina  = 0;
+
+        File file = getBaseContext().getFileStreamPath("stamina.txt");
+
+        if (file.exists()) {
+
+            FileInputStream fis;
+
+            try {
+                fis = openFileInput("stamina.txt");
+                stamina = fis.read();
+                fis.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+        }
+
+
+
 
         Button b = (Button) findViewById(R.id.button6);//get id of button 1
         b.setOnClickListener(new View.OnClickListener() {
@@ -69,23 +95,93 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
 
 
         Button g = (Button) findViewById(R.id.button4);
-        g.setText(db.getCurrentDescription(1));//get id of button 1
         g.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // Toast T = Toast.makeText(getApplicationContext(),String.valueOf(db.getQuest(1)),Toast.LENGTH_LONG);
-                Toast T= Toast.makeText(getApplicationContext(), "check", Toast.LENGTH_LONG);
+
+                // Load Stamina Value
+                int staminaClick  = 0;
+
+                File file = getBaseContext().getFileStreamPath("stamina.txt");
+
+                if (file.exists()) {
+
+                    FileInputStream fis;
+
+                    try {
+                        fis = openFileInput("stamina.txt");
+                        staminaClick = fis.read();
+                        fis.close();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+
+                    }
+                }
+
+                // Add to and Store Stamina Value
+                staminaClick += 2;
+                FileOutputStream fos;
+
+                try {
+                    fos = openFileOutput("test2.txt", Context.MODE_PRIVATE);
+                    fos.write(staminaClick);
+                    fos.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+
+                }
+
+                Toast T= Toast.makeText(getApplicationContext(), String.valueOf(staminaClick), Toast.LENGTH_LONG);
                 T.show();
             }
         });
 
 
         Button j = (Button) findViewById(R.id.button5);
-        g.setText(db.getCurrentDescription(2));//get id of button 1
         j.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast T = Toast.makeText(getApplicationContext(),"These are quests you complete to gain Stamina",Toast.LENGTH_LONG);
+
+                // Load Stamina Value
+                int staminaClick  = 0;
+
+                File file = getBaseContext().getFileStreamPath("stamina.txt");
+
+                if (file.exists()) {
+
+                    FileInputStream fis;
+
+                    try {
+                        fis = openFileInput("stamina.txt");
+                        staminaClick = fis.read();
+                        fis.close();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+
+                    }
+                }
+
+                // Add to and Store Stamina Value
+                staminaClick += 3;
+                FileOutputStream fos;
+
+                try {
+                    fos = openFileOutput("test2.txt", Context.MODE_PRIVATE);
+                    fos.write(staminaClick);
+                    fos.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+
+                }
+                Toast T = Toast.makeText(getApplicationContext(),String.valueOf(staminaClick),Toast.LENGTH_LONG);
                 T.show();
             }
         });

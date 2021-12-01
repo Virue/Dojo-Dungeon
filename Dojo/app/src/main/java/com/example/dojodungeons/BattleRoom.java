@@ -8,12 +8,62 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+//new stuff
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import android.content.Context;
+
+
 public class BattleRoom extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battle_room);
+
+        //Load Stamina from file
+        int stamina  = 0;
+
+        File file = getBaseContext().getFileStreamPath("stamina.txt");
+
+        if (file.exists()) {
+
+            FileInputStream fis;
+
+            try {
+                fis = openFileInput("stamina.txt");
+                stamina = fis.read();
+                fis.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+        }
+
+        //stamina is now the correct value
+        //Uncomment and move the code underneath whenever you want to reset stamina to 0
+
+        /*
+        stamina = 0;
+                FileOutputStream fos;
+
+                try {
+                    fos = openFileOutput("test2.txt", Context.MODE_PRIVATE);
+                    fos.write(stamina);
+                    fos.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+
+                }
+         */
 
         Button b = (Button) findViewById(R.id.button3);//get id of button 1 asdf
         b.setOnClickListener(new View.OnClickListener() {
