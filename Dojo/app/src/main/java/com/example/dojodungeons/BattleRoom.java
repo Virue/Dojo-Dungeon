@@ -15,7 +15,6 @@ public class BattleRoom extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battle_room);
 
-
         Button b = (Button) findViewById(R.id.button3);//get id of button 1 asdf
         b.setOnClickListener(new View.OnClickListener() {
             @Override
