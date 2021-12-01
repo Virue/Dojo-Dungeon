@@ -59,6 +59,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
     float totalSteps = 0f;
     float previousTotalSteps = 0f;
     TextView tv_stepsTaken;
+    TextView tv_totalMax;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -71,6 +72,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
             requestPermissions(new String[]{Manifest.permission.ACTIVITY_RECOGNITION}, Sensor.TYPE_STEP_COUNTER);
         }
         tv_stepsTaken = findViewById(R.id.tv_stepsTaken);
+        tv_totalMax = findViewById(R.id.tv_totalMax);
         loadData();
         resetSteps();
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
@@ -97,6 +99,8 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
 
             }
         }
+
+        tv_totalMax.setText(String.valueOf(RunningGoals[currentRunningQuest]));
 
         //Save current running quest
         FileOutputStream fos2;
@@ -133,6 +137,9 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
                 e.printStackTrace();
 
             }
+        }
+        if( currentOtherQuest > 12 ){
+            currentOtherQuest = 0;
         }
 
         //Save current Other quest
@@ -229,24 +236,50 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
                     }
                 }
 
-                // Add to and Store Stamina Value
-                staminaClick += RunningRewards[temp];
-                FileOutputStream fos;
+                if (totalSteps >= RunningGoals[temp]) {
 
-                try {
-                    fos = openFileOutput("stamina.txt", Context.MODE_PRIVATE);
-                    fos.write(staminaClick);
-                    fos.close();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
+                    // Add to and Store Stamina Value
+                    staminaClick += RunningRewards[temp];
+                    FileOutputStream fos;
 
-                } catch (IOException e) {
-                    e.printStackTrace();
+                    try {
+                        fos = openFileOutput("stamina.txt", Context.MODE_PRIVATE);
+                        fos.write(staminaClick);
+                        fos.close();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+
+                    }
+
+
+                    Toast T = Toast.makeText(getApplicationContext(), String.valueOf(staminaClick), Toast.LENGTH_LONG);
+                    T.show();
+
+                    temp +=1;
+                    if (temp > 9){
+                        temp = 0;
+                    }
+                    tv_totalMax.setText(String.valueOf(RunningGoals[temp]));
+                    //Save current running quest
+                    FileOutputStream fos2;
+
+                    try {
+                        fos2 = openFileOutput("currentRunningQuest.txt", Context.MODE_PRIVATE);
+                        fos2.write(temp);
+                        fos2.close();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+
+                    }
+
 
                 }
-
-                Toast T= Toast.makeText(getApplicationContext(), String.valueOf(staminaClick), Toast.LENGTH_LONG);
-                T.show();
             }
         });
 
@@ -315,6 +348,9 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
 
                 //Get new OtherQuest
                 temp += 1;
+                if( temp > 12 ){
+                  temp = 0;
+                }
                 FileOutputStream fos3;
 
                 try {
