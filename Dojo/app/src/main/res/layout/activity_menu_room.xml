@@ -6,13 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".MenuRoom">
 
+    <pl.droidsonroids.gif.GifImageView
+        android:id="@+id/imageView6"
+        android:layout_width="418dp"
+        android:layout_height="723dp"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
+        android:src="@drawable/dohotitle"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
     <Button
         android:id="@+id/button9"
         android:layout_width="205dp"
         android:layout_height="63dp"
-        android:layout_marginTop="236dp"
-        android:layout_marginEnd="188dp"
+        android:layout_marginTop="140dp"
+        android:layout_marginEnd="180dp"
         android:text="Battle Room"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button7" />
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="205dp"
+        android:layout_height="63dp"
+        android:layout_marginTop="76dp"
+        android:layout_marginEnd="180dp"
+        android:text="Training Room"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button7" />
 
@@ -20,20 +42,10 @@
         android:id="@+id/button7"
         android:layout_width="107dp"
         android:layout_height="48dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="272dp"
         android:text="Exit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/button8"
-        android:layout_width="205dp"
-        android:layout_height="63dp"
-        android:layout_marginTop="156dp"
-        android:layout_marginEnd="188dp"
-        android:text="Training Room"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
