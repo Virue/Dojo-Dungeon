@@ -100,6 +100,10 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
             }
         }
 
+        if( currentRunningQuest > 11 ){
+            currentRunningQuest = 0;
+        }
+
         tv_totalMax.setText(String.valueOf(RunningGoals[currentRunningQuest]));
 
         //Save current running quest
@@ -138,7 +142,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
 
             }
         }
-        if( currentOtherQuest > 12 ){
+        if( currentOtherQuest > 11 ){
             currentOtherQuest = 0;
         }
 
@@ -258,7 +262,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
                     Toast T = Toast.makeText(getApplicationContext(), String.valueOf(staminaClick), Toast.LENGTH_LONG);
                     T.show();
 
-                    temp +=1;
+                    temp += 1;
                     if (temp > 9){
                         temp = 0;
                     }
