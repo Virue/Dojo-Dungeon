@@ -78,7 +78,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
         //Some Randomness
         Random rand = new Random();
         int randomRunning = rand.nextInt(10);
-        int randomOther = rand.nextInt(13);
+        int randomOther = rand.nextInt(12);
 
         // Load Current RunningQuest
         int currentRunningQuest = randomRunning;
