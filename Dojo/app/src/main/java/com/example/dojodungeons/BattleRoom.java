@@ -25,6 +25,12 @@ public class BattleRoom extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_battle_room);
 
+        //initalise sene
+        pl.droidsonroids.gif.GifImageView bkgrnd = (pl.droidsonroids.gif.GifImageView) findViewById(R.id.imageView2);
+        bkgrnd.setEnabled(false);
+        bkgrnd.setFreezesAnimation(false);
+
+
         //Load Stamina from file
         int stamina  = 0;
 
@@ -45,11 +51,13 @@ public class BattleRoom extends AppCompatActivity {
             }
         }
 
+
+
         //stamina is now the correct value
         //Uncomment and move the code underneath whenever you want to reset stamina to 0
 
         /*
-        stamina = 0;
+                stamina = 0;
                 FileOutputStream fos;
 
                 try {
@@ -65,6 +73,9 @@ public class BattleRoom extends AppCompatActivity {
                 }
          */
 
+        //pl.droidsonroids.gif.GifImageView bkgrnd = (pl.droidsonroids.gif.GifImageView) findViewById(R.id.imageView2);
+
+
 
         Button b = (Button) findViewById(R.id.button3);//get id of button 1 asdf
         b.setOnClickListener(new View.OnClickListener() {
@@ -78,10 +89,22 @@ public class BattleRoom extends AppCompatActivity {
         g.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast T = Toast.makeText(getApplicationContext(),"This is where you spend Stamina to Fight Enemies",Toast.LENGTH_LONG);
+
+                Toast T = Toast.makeText(getApplicationContext(),"Your Stamina: ",Toast.LENGTH_LONG);
+
+
+                bkgrnd.setEnabled(false);
+                bkgrnd.setFreezesAnimation(false);
+
+                bkgrnd.setImageResource(R.drawable.hill_grass);
+
+                bkgrnd.setImageResource(R.drawable.dohotitle);
+
                 T.show();
+
             }
         });
+
 
 
     }
