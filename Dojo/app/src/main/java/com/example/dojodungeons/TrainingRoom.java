@@ -34,10 +34,24 @@ import com.mikhaellopez.circularprogressbar.CircularProgressBar;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class TrainingRoom extends AppCompatActivity implements SensorEventListener {
 
     /* for database */
+    String[] RunningQuest = {"Slow and Steady: take 100 steps", "100 dash: take 200 steps", "Walk it off: take 300 steps",
+            "Taking the scenic route: take 400 steps", "And i would walk 500 more..: take 500 steps", "Adrenaline rush: take 600 steps",
+            "Fancy Footwork: take 700 steps", "Jog your memory: take 800 steps", "Speed demon: take 900 steps"};
+
+    int[] RunningGoals = {100,200,300,400,500,600,700,800,900};
+
+    int[] RunningRewards = {2,4,6,8,10,12,14,16,18};
+
+    String[] OtherQuest = {"Pull it together: Do 10 pull ups", "Pull some strings: Do 20 pull ups", "Pulling it off: Do 50 pull ups",
+            "Pushover: Do 10 push ups", "Now you're pushing it: Do 20 push ups", "Push it to the limit: Do 50 push ups",
+            "Sit Down: Do 10 sit ups", "Sitting on the job: Do 20 sit ups", "No time to sit around: Do 50 sit ups",
+            "Crunchy: Do 10 crunches", "Crunch time: Do 20 crunches", "Crunch the numbers: Do 50 crunches"};
+    int[] OtherRewards = {5,10,15,4,8,12,3,6,9,3,6,9};
 
 
     SensorManager sensorManager = null;
@@ -60,6 +74,84 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
         loadData();
         resetSteps();
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
+
+        //Some Randomness
+        Random rand = new Random();
+        int randomRunning = rand.nextInt(10);
+        int randomOther = rand.nextInt(13);
+
+        // Load Current RunningQuest
+        int currentRunningQuest = randomRunning;
+
+
+        File file2 = getBaseContext().getFileStreamPath("currentRunningQuest.txt");
+
+        if (file2.exists()) {
+
+            FileInputStream fis;
+
+            try {
+                fis = openFileInput("currentRunningQuest.txt");
+                currentRunningQuest = fis.read();
+                fis.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+        }
+
+        //Save current running quest
+        FileOutputStream fos2;
+
+        try {
+            fos2 = openFileOutput("currentRunningQuest.txt", Context.MODE_PRIVATE);
+            fos2.write(currentRunningQuest);
+            fos2.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
+
+
+        // Load Current OtherQuest
+        int currentOtherQuest = randomOther;
+
+
+        File file3 = getBaseContext().getFileStreamPath("currentOtherQuest.txt");
+
+        if (file3.exists()) {
+
+            FileInputStream fis;
+
+            try {
+                fis = openFileInput("currentOtherQuest.txt");
+                currentOtherQuest = fis.read();
+                fis.close();
+
+            } catch (IOException e) {
+                e.printStackTrace();
+
+            }
+        }
+
+        //Save current Other quest
+        FileOutputStream fos3;
+
+        try {
+            fos3 = openFileOutput("currentOtherQuest.txt", Context.MODE_PRIVATE);
+            fos3.write(currentOtherQuest);
+            fos3.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+
+        }
 
        //Load Stamina from file
         int stamina  = 0;
@@ -95,6 +187,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
 
 
         Button g = (Button) findViewById(R.id.button4);
+        g.setText(RunningQuest[currentRunningQuest]);
         g.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -119,12 +212,32 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
                     }
                 }
 
+                //get current running quest
+                int temp = 0;
+
+                File file2 = getBaseContext().getFileStreamPath("currentRunningQuest.txt");
+
+                if (file2.exists()) {
+
+                    FileInputStream fis;
+
+                    try {
+                        fis = openFileInput("currentRunningQuest.txt");
+                        temp = fis.read();
+                        fis.close();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+
+                    }
+                }
+
                 // Add to and Store Stamina Value
-                staminaClick += 2;
+                staminaClick += RunningRewards[temp];
                 FileOutputStream fos;
 
                 try {
-                    fos = openFileOutput("test2.txt", Context.MODE_PRIVATE);
+                    fos = openFileOutput("stamina.txt", Context.MODE_PRIVATE);
                     fos.write(staminaClick);
                     fos.close();
                 } catch (FileNotFoundException e) {
@@ -142,6 +255,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
 
 
         Button j = (Button) findViewById(R.id.button5);
+        j.setText(OtherQuest[currentOtherQuest]);
         j.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -166,12 +280,32 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
                     }
                 }
 
+                //get current other quest
+                int temp = 0;
+
+                File file3 = getBaseContext().getFileStreamPath("currentOtherQuest.txt");
+
+                if (file3.exists()) {
+
+                    FileInputStream fis;
+
+                    try {
+                        fis = openFileInput("currentOtherQuest.txt");
+                        temp = fis.read();
+                        fis.close();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+
+                    }
+                }
+
                 // Add to and Store Stamina Value
-                staminaClick += 3;
+                staminaClick += OtherRewards[temp];
                 FileOutputStream fos;
 
                 try {
-                    fos = openFileOutput("test2.txt", Context.MODE_PRIVATE);
+                    fos = openFileOutput("stamina.txt", Context.MODE_PRIVATE);
                     fos.write(staminaClick);
                     fos.close();
                 } catch (FileNotFoundException e) {
@@ -181,6 +315,24 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
                     e.printStackTrace();
 
                 }
+
+                //Get new OtherQuest
+                int randomOther = rand.nextInt(13);
+                FileOutputStream fos3;
+
+                try {
+                    fos3 = openFileOutput("currentOtherQuest.txt", Context.MODE_PRIVATE);
+                    fos3.write(randomOther);
+                    fos3.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+
+                } catch (IOException e) {
+                    e.printStackTrace();
+
+                }
+                j.setText(OtherQuest[randomOther]);
+
                 Toast T = Toast.makeText(getApplicationContext(),String.valueOf(staminaClick),Toast.LENGTH_LONG);
                 T.show();
             }

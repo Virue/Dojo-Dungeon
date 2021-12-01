@@ -53,7 +53,7 @@ public class BattleRoom extends AppCompatActivity {
                 FileOutputStream fos;
 
                 try {
-                    fos = openFileOutput("test2.txt", Context.MODE_PRIVATE);
+                    fos = openFileOutput("stamina.txt", Context.MODE_PRIVATE);
                     fos.write(stamina);
                     fos.close();
                 } catch (FileNotFoundException e) {
