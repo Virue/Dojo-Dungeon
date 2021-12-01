@@ -293,7 +293,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
 
 
         Button j = (Button) findViewById(R.id.button5);
-        j.setText(OtherQuest[5]);
+        j.setText(OtherQuest[currentOtherQuest]);
         j.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
