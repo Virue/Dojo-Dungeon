@@ -263,7 +263,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
                     T.show();
 
                     temp += 1;
-                    if (temp > 9){
+                    if (temp > 8){
                         temp = 0;
                     }
                     tv_totalMax.setText(String.valueOf(RunningGoals[temp]));
@@ -360,7 +360,7 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
 
                 //Get new OtherQuest
                 temp += 1;
-                if( temp > 12 ){
+                if( temp > 11 ){
                   temp = 0;
                 }
                 FileOutputStream fos3;
