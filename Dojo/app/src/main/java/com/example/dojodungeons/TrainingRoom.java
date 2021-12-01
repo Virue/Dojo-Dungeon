@@ -39,11 +39,11 @@ import java.util.Random;
 public class TrainingRoom extends AppCompatActivity implements SensorEventListener {
 
     /* for database */
-    String[] RunningQuest = {"Slow and Steady: take 100 steps", "100 dash: take 200 steps", "Walk it off: take 300 steps",
+    String[] RunningQuest = {"Slow and Steady: take 5 steps", "100 meter dash: take 200 steps", "Walk it off: take 300 steps",
             "Taking the scenic route: take 400 steps", "And i would walk 500 more..: take 500 steps", "Adrenaline rush: take 600 steps",
             "Fancy Footwork: take 700 steps", "Jog your memory: take 800 steps", "Speed demon: take 900 steps"};
 
-    int[] RunningGoals = {100,200,300,400,500,600,700,800,900};
+    int[] RunningGoals = {5,200,300,400,500,600,700,800,900};
 
     int[] RunningRewards = {1,1,1,1,2,2,2,2,3};
 
@@ -277,7 +277,11 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
                         e.printStackTrace();
 
                     }
+                    g.setText(RunningQuest[temp]);
 
+                    previousTotalSteps = 0;
+                    totalSteps = 0;
+                    tv_stepsTaken.setText("0");
 
                 }
             }
