@@ -282,6 +282,10 @@ public class TrainingRoom extends AppCompatActivity implements SensorEventListen
                     previousTotalSteps = 0;
                     totalSteps = 0;
                     tv_stepsTaken.setText("0");
+                    SharedPreferences sharedPreferences = getSharedPreferences("myPrefs", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedPreferences.edit();
+                    editor.putFloat("key1", previousTotalSteps);
+                    editor.apply();
 
                 }
             }
