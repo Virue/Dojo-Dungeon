@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ import android.content.Context;
 
 public class BattleRoom extends AppCompatActivity {
 
+    public  int stamina;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +35,6 @@ public class BattleRoom extends AppCompatActivity {
 
 
         //Load Stamina from file
-        int stamina  = 0;
 
         File file = getBaseContext().getFileStreamPath("stamina.txt");
 
@@ -73,9 +75,6 @@ public class BattleRoom extends AppCompatActivity {
                 }
          */
 
-        //pl.droidsonroids.gif.GifImageView bkgrnd = (pl.droidsonroids.gif.GifImageView) findViewById(R.id.imageView2);
-
-
 
         Button b = (Button) findViewById(R.id.button3);//get id of button 1 asdf
         b.setOnClickListener(new View.OnClickListener() {
@@ -85,27 +84,46 @@ public class BattleRoom extends AppCompatActivity {
                 startActivity(i);
             }
         });
+
         Button g = (Button) findViewById(R.id.button2);//get id of button 1
         g.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast T = Toast.makeText(getApplicationContext(),"Your Stamina: ",Toast.LENGTH_LONG);
-
+                Toast T = Toast.makeText(getApplicationContext(),"Your Stamina left: " + stamina,Toast.LENGTH_SHORT);
 
                 bkgrnd.setEnabled(false);
                 bkgrnd.setFreezesAnimation(false);
+                bkgrnd.setImageResource(R.drawable.doho);
+                b.setClickable(false);
 
-                bkgrnd.setImageResource(R.drawable.hill_grass);
 
-                bkgrnd.setImageResource(R.drawable.dohotitle);
+                stamina = stamina-1;
+                FileOutputStream fos;
+
+                try {
+                    fos = openFileOutput("stamina.txt", Context.MODE_PRIVATE);
+                    fos.write(stamina);
+                    fos.close();
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                final Handler handler = new Handler();
+                handler.postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        b.setClickable(true);
+                        bkgrnd.setImageResource(R.drawable.dohochill);
+                    }
+                }, 2000);
 
                 T.show();
 
             }
         });
-
-
 
     }
 }
