@@ -53,29 +53,6 @@ public class BattleRoom extends AppCompatActivity {
             }
         }
 
-
-
-        //stamina is now the correct value
-        //Uncomment and move the code underneath whenever you want to reset stamina to 0
-
-        /*
-                stamina = 0;
-                FileOutputStream fos;
-
-                try {
-                    fos = openFileOutput("stamina.txt", Context.MODE_PRIVATE);
-                    fos.write(stamina);
-                    fos.close();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-
-                }
-         */
-
-
         Button b = (Button) findViewById(R.id.button3);//get id of button 1 asdf
         b.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -97,30 +74,31 @@ public class BattleRoom extends AppCompatActivity {
                 bkgrnd.setImageResource(R.drawable.doho);
                 b.setClickable(false);
 
+                if(stamina > 0) {
+                    stamina = stamina - 1;
+                    FileOutputStream fos;
 
-                stamina = stamina-1;
-                FileOutputStream fos;
-
-                try {
-                    fos = openFileOutput("stamina.txt", Context.MODE_PRIVATE);
-                    fos.write(stamina);
-                    fos.close();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-                final Handler handler = new Handler();
-                handler.postDelayed(new Runnable() {
-                    @Override
-                    public void run() {
-                        b.setClickable(true);
-                        bkgrnd.setImageResource(R.drawable.dohochill);
+                    try {
+                        fos = openFileOutput("stamina.txt", Context.MODE_PRIVATE);
+                        fos.write(stamina);
+                        fos.close();
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                }, 2000);
 
-                T.show();
+                    final Handler handler = new Handler();
+                    handler.postDelayed(new Runnable() {
+                        @Override
+                        public void run() {
+                            b.setClickable(true);
+                            bkgrnd.setImageResource(R.drawable.dohochill);
+                        }
+                    }, 2000);
+
+                    T.show();
+                }
 
             }
         });
