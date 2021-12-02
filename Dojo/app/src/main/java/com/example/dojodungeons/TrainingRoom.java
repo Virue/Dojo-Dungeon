@@ -39,13 +39,13 @@ import java.util.Random;
 public class TrainingRoom extends AppCompatActivity implements SensorEventListener {
 
     /* for database */
-    String[] RunningQuest = {"Slow and Steady: take 5 steps", "100 meter dash: take 200 steps", "Walk it off: take 300 steps",
-            "Taking the scenic route: take 400 steps", "And i would walk 500 more..: take 500 steps", "Adrenaline rush: take 600 steps",
+    String[] RunningQuest = {"Slow and Steady: take 5 steps", "50 meter dash: take 50 steps", "Walk it off: take 100 steps",
+            "Taking the scenic route: take 200 steps", "And i would walk 500 more..: take 500 steps", "Adrenaline rush: take 600 steps",
             "Fancy Footwork: take 700 steps", "Jog your memory: take 800 steps", "Speed demon: take 900 steps"};
 
-    int[] RunningGoals = {5,200,300,400,500,600,700,800,900};
+    int[] RunningGoals = {5,50,100,200,500,600,700,800,900};
 
-    int[] RunningRewards = {1,1,1,1,2,2,2,2,3};
+    int[] RunningRewards = {1,1,1,2,2,3,3,4,5};
 
     String[] OtherQuest = {"Pull it together: Do 10 pull ups", "Pull some strings: Do 20 pull ups", "Pulling it off: Do 50 pull ups",
             "Pushover: Do 10 push ups", "Now you're pushing it: Do 20 push ups", "Push it to the limit: Do 50 push ups",
